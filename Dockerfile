@@ -1,7 +1,6 @@
 FROM python:3.4.9-slim
 
 RUN apt-get update -y 
-	    #apt-get install -y python-dev libldap2-dev libsasl2-dev libssl-dev
 
 WORKDIR /opt
 
