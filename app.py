@@ -37,3 +37,38 @@ def index():
 			return redirect(url_for('index'))
 
 	return render_template('index.html')
+
+# REGRA PARA PÁGINA DE LOGOUT
+@app.route("/logout", methods=['GET','POST'])
+def logout():
+	if 'user' in session:
+		g.user = None
+		try:
+			dropsession()
+			return redirect(url_for('index'))			
+		except Exception as e:
+			return redirect(url_for('index'))
+
+	return 'Not logged in'
+
+@app.before_request
+def before_request():
+	g.user = None
+	if 'user' in session:
+		g.user = session['user']
+
+@app.route('/getsession')
+def getsession():
+	if 'user' in session:
+		return session['user']
+
+	return 'Not logged in'
+
+@app.route('/dropsession')
+def dropsession():
+	session.pop('user', None)
+	return 'Dropped!'
+
+
+if __name__ == '__main__':
+	app.run(debug=True, host='0.0.0.0', port="5000")
