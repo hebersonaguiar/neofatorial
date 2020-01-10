@@ -11,7 +11,7 @@ CORS(app, resources={r"/*": {"origins": "*"}})
 app.secret_key = "flash message"
 
 # REGRAS DE AUTENTICAÇÃO PARA PÁGINA DE LOGIN
-@app.route('/', methods=['POST'])
+@app.route('/', methods=['GET','POST'])
 def index():
 
 	if request.method == 'POST':
