@@ -1,33 +1,94 @@
-<!doctype html>
-
-<html lang="en">
+<!DOCTYPE html>
+<html>
 
 <head>
-    <meta charset="utf-8">
-
     <title>Neo Fatorial</title>
-    <meta name="description" content="Neo Fatorial">
-    <meta name="author" content="SitePoint">
-
-    <link rel="stylesheet" href="/static/css/styles.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
-
+    <link rel="stylesheet" type="text/css" href="/static/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+   <link rel="stylesheet" type="text/css" href="/static/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/static/fonts/iconic/css/material-design-iconic-font.min.css">
+    <!-- <link rel="shortcut icon" href="/static/teacher.png"> -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/static/css/style-register.css">
 </head>
-<div class="simple-subscription-form">
-    <form method="POST">
-        <h4>Neo Fatorial</h4>
-        <p>Insira um valor para calcular o fatorial :</p>
-        <div class="input-group">
-            <span class="input-group-label">
-        <i class="fa fa-envelope"></i>
-      </span>
-            <input class="input-group-field" type="text" name="value" placeholder="Insira um número" required>
-            <button class="button">Sign up now</button>
-    </form>
+
+<body>
+    <div id="fullscreen_bg" class="fullscreen_bg" />
+    <h1 id="welcomelogout" >Sair <a id="logout" href="/logout"><i class="fas fa-power-off"></i></a></h1>
+    <div id="regContainer" class="container">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                  {% if messages %}
+                    {% for category, message in messages %}
+                       <div class="alert alert-{{ category }}" role="alert"> {{ message }}
+                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                         <span aria-hidden="true">&times;</span>
+                         </button></div>
+                    {% endfor %}
+                  {% endif %}
+                {% endwith %}
+                <div class="panel panel-login">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <a href="#" class="active" id="login-form-link">Calculo de Fatorial</a>
+                            </div>
+                        </div>
+                        <hr>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <form id="login-form" action="/register" method="post" role="form" style="display: block;">
+                                    <div class="form-group">
+                                        <label for="value">Número</label>
+                                        <input type="text" name="value" id="value" tabindex="1" class="form-control" placeholder="Valor" value="">
+                                    </div>
+<!--                                     <div class="form-group">
+                                        <label for="numbercard">Número do Cartão</label>
+                                        <input type="text" name="numbercard" id="numbercard" tabindex="2" class="form-control" placeholder="Número do Cartão">
+                                    </div> -->
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-sm-6 col-sm-offset-3">
+                                                <input type="submit" name="login-submit" id="login-submit" tabindex="4" class="form-control btn btn-login" value="Calcular">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+</body>
+<script type="text/javascript" src="/static/js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
+<script type="text/javascript" language="javascript">
+    $(function() {
 
-    <body>
-        <!-- <script src="/static/js/scripts.js"></script> -->
-    </body>
+       $('#login-form-link').click(function(e) {
+         $("#login-form").delay(100).fadeIn(100);
+         $("#register-form").fadeOut(100);
+         $('#register-form-link').removeClass('active');
+         $(this).addClass('active');
+         e.preventDefault();
+      });
+      $('#register-form-link').click(function(e) {
+         $("#register-form").delay(100).fadeIn(100);
+         $("#login-form").fadeOut(100);
+         $('#login-form-link').removeClass('active');
+         $(this).addClass('active');
+         e.preventDefault();
+      });
 
+   });
+</script>
 </html>
