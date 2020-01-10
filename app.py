@@ -20,52 +20,22 @@ def index():
 		try:
 			num = int(valueForm)
 			factorial = 1
-			# check if the number is negative, positive or zero
 			if num < 0:
 			   flash('Desculpe, não podemos calcular factorial de numeros negativos.', 'danger')
+			   dropsession()
 			elif num == 0:
 			   flash('O factorial de 0 é 1', 'info')
+			   dropsession()
 			else:
 			   for i in range(1,num + 1):
 			       factorial = factorial*i
 			   flash('o fatorial de ' + str(num) + ' é ' + str(factorial) + '.', 'info')
+			   dropsession()
 
 		except Exception as error_message:
 			return redirect(url_for('index'))
 
 	return render_template('index.html')
-
-# REGRA PARA PÁGINA DE LOGOUT
-# @app.route("/logout", methods=['GET','POST'])
-# def logout():
-# 	if 'user' in session:
-# 		g.user = None
-# 		try:
-# 			dropsession()
-# 			return redirect(url_for('index'))			
-# 		except Exception as e:
-# 			return redirect(url_for('index'))
-
-# 	return 'Not logged in'
-
-# @app.before_request
-# def before_request():
-# 	g.user = None
-# 	if 'user' in session:
-# 		g.user = session['user']
-
-# @app.route('/getsession')
-# def getsession():
-# 	if 'user' in session:
-# 		return session['user']
-
-# 	return 'Not logged in'
-
-# @app.route('/dropsession')
-# def dropsession():
-# 	session.pop('user', None)
-# 	return 'Dropped!'
-
 
 if __name__ == '__main__':
 	app.run(debug=True, host='0.0.0.0', port="5000")
