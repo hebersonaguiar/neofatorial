@@ -2,7 +2,6 @@ import os, sys, ast, re, json, random, requests, datetime
 from flask import Flask, session, render_template, request, redirect, url_for, g
 from flask_restful import Resource, Api
 from flask_cors import CORS
-from flask_mysqldb import MySQL
 from json import dumps
 from flask_jsonpify import jsonify
 
