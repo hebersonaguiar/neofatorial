@@ -34,7 +34,8 @@ def index():
 			   for i in range(1,num + 1):
 			       factorial = factorial*i
 			   print("O factorial do numero ",num," e ",factorial)
-			   flash('O fatorial de ' + num + ' é '+ factorial, 'info')
+			   # flash('O fatorial de ' + num + ' é '+ factorial, 'info')
+			   flash('o fatorial de ' + num + ' é ' + factorial + '.', 'info')
 
 		except Exception as error_message:
 			return redirect(url_for('index'))
