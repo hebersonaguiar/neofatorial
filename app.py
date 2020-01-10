@@ -35,7 +35,7 @@ def index():
 			       factorial = factorial*i
 			   print("O factorial do numero ",num," e ",factorial)
 			   # flash('O fatorial de ' + num + ' é '+ factorial, 'info')
-			   flash('O factorial é ' + factorial, 'info')
+			   flash('O factorial é ' + num, 'info')
 			   # flash('o fatorial de ' + num + ' é ' + factorial + '.', 'info')
 
 		except Exception as error_message:
