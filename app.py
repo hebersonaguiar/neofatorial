@@ -10,15 +10,12 @@ api = Api(app)
 CORS(app, resources={r"/*": {"origins": "*"}})
 app.secret_key = "5fyCcv23UXIQg7JxWD6ah"
 
-# REGRAS DE AUTENTICAÇÃO PARA PÁGINA DE LOGIN
 @app.route('/', methods=['GET','POST'])
 def index():
 
 	if request.method == 'POST':
-		# session.pop('user', None)
 
 		valueForm = request.form['value']
-		print(valueForm)
 
 		try:
 			num = int(valueForm)
