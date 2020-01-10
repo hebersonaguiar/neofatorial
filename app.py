@@ -17,7 +17,8 @@ def index():
 	if request.method == 'POST':
 		# session.pop('user', None)
 
-		valueForm = request.form['value'] 
+		valueForm = request.form['value']
+		print(valueForm)
 
 		try:
 			num = int(valueForm)
