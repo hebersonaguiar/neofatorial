@@ -8,7 +8,7 @@ from flask_jsonpify import jsonify
 app = Flask(__name__)
 api = Api(app)
 CORS(app, resources={r"/*": {"origins": "*"}})
-app.secret_key = "flash message"
+app.secret_key = "5fyCcv23UXIQg7JxWD6ah"
 
 # REGRAS DE AUTENTICAÇÃO PARA PÁGINA DE LOGIN
 @app.route('/', methods=['GET','POST'])
@@ -26,15 +26,15 @@ def index():
 			# check if the number is negative, positive or zero
 			if num < 0:
 			   print("Desculpe, não podemos calcular factorial de numeros negativos.")
-			   flash("Desculpe, não podemos calcular factorial de numeros negativos.", "danger")
+			   flash('Desculpe, não podemos calcular factorial de numeros negativos.', 'danger')
 			elif num == 0:
 			   print("O factorial de 0 e 1")
-			   flash("O factorial de 0 e 1", "info")
+			   flash('O factorial de 0 é 1', 'info')
 			else:
 			   for i in range(1,num + 1):
 			       factorial = factorial*i
 			   print("O factorial do numero ",num," e ",factorial)
-			   flash("O factorial do numero ",num," e ",factorial, "info")
+			   flash('O fatorial de ' + num + ' é '+ factorial, 'info')
 
 		except Exception as error_message:
 			return redirect(url_for('index'))
