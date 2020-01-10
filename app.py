@@ -33,8 +33,8 @@ def index():
 			else:
 			   for i in range(1,num + 1):
 			       factorial = factorial*i
-			       flash('O factorial é ' + num + ".", 'info')
 			   print("O factorial do numero ",num," e ",factorial)
+			   flash('O factorial é ' + num + ".", 'info')
 			   # flash('O fatorial de ' + num + ' é '+ factorial, 'info')
 			   # flash('o fatorial de ' + num + ' é ' + factorial + '.', 'info')
 
