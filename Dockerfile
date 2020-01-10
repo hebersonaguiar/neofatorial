@@ -1,9 +1,7 @@
-FROM python:3.4.9
+FROM python:3.4.9-slim
 
-ENV TZ=America/Sao_Paulo
-
-RUN apt-get update -y ; \
-	    apt-get install -y python-dev libldap2-dev libsasl2-dev libssl-dev
+RUN apt-get update -y 
+	    #apt-get install -y python-dev libldap2-dev libsasl2-dev libssl-dev
 
 WORKDIR /opt
 
